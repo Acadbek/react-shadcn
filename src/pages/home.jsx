@@ -1,8 +1,5 @@
 import React from 'react'
-import { Card } from "@/components/ui/card"
-import { lazy } from 'react'
 import { HeaderCards } from '@/components/header-cards'
-// const HomeChart = lazy(() => import('@/components/home-chart'))
 import { HomeChart } from '@/components/home-chart'
 
 export const HomePage = () => {

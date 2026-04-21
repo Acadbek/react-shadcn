@@ -118,7 +118,7 @@ const chartData = [
   { date: "2024-06-29", desktop: 103, mobile: 160 },
   { date: "2024-06-30", desktop: 446, mobile: 400 },
 ]
-// ✅ stable formatter (outside component)
+
 const formatDate = (value) => {
   const date = new Date(value)
   return date.toLocaleDateString("en-US", {
@@ -127,12 +127,8 @@ const formatDate = (value) => {
   })
 }
 
-// ✅ stable tooltip formatter
 const tooltipLabelFormatter = (value) => formatDate(value)
 
-// ✅ static data
-
-// ✅ memo components (outside)
 const ChartHeader = memo(() => (
   <div className="grid flex-1 gap-1">
     <CardTitle>Area Chart - Interactive</CardTitle>
@@ -157,7 +153,6 @@ const renderLegendContent = (props) => (
 export const HomeChart = memo(({ chartConfig }) => {
   const [timeRange, setTimeRange] = useState("90d")
 
-  // ✅ memoized filtered data
   const filteredChartData = useMemo(() => {
     const referenceDate = new Date("2024-06-30")
 
@@ -174,7 +169,6 @@ export const HomeChart = memo(({ chartConfig }) => {
     })
   }, [timeRange])
 
-  // ✅ memoized JSX (NO jsx-as-prop violation)
   const tooltipContent = useMemo(() => (
     <ChartTooltipContent
       labelFormatter={tooltipLabelFormatter}
