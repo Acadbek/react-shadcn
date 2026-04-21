@@ -3,10 +3,14 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
+import reactPerf from 'eslint-plugin-react-perf'
 
 export default defineConfig([
   globalIgnores(['dist']),
   {
+    plugins: {
+      'react-perf': reactPerf
+    },
     files: ['**/*.{js,jsx}'],
     extends: [
       js.configs.recommended,
@@ -24,6 +28,9 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'react-perf/jsx-no-new-array-as-prop': 'error',
+      'react-perf/jsx-no-new-function-as-prop': 'error',
+      'react-perf/jsx-no-jsx-as-prop': 'error',
     },
   },
 ])
