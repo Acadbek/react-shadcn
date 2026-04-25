@@ -64,7 +64,15 @@ const data = {
         },
         {
           title: "Settings",
-          url: "#",
+          url: "/some/settings",
+        },
+        {
+          title: "Zod",
+          url: "/some/zod",
+        },
+        {
+          title: "Zod2",
+          url: "/zod2",
         },
       ],
     },

@@ -14,16 +14,34 @@ import {
 
 export const columns = [
   {
-    accessorKey: "status",
-    header: "Status",
+    accessorKey: "avatar",
+    header: "Avatar",
+    cell: ({ getValue }) => {
+      const avatarUrl = getValue();
+      return (
+        <img
+          src={avatarUrl}
+          alt="Avatar"
+          className="w-10 h-10 rounded-full object-cover"
+        />
+      )
+    }
+  },
+  {
+    accessorKey: "name",
+    header: "Name",
   },
   {
     accessorKey: "email",
     header: "Email",
   },
   {
-    accessorKey: "amount",
-    header: "Amount",
+    accessorKey: "creationAt",
+    header: "Creation At",
+  },
+  {
+    accessorKey: "role",
+    header: "Roles",
   },
 ]
 
